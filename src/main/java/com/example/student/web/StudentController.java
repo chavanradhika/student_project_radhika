@@ -19,14 +19,12 @@ public class StudentController {
         this.service = service;
     }
 
-
     // POST: create a student
     @PostMapping
     public ResponseEntity<Student> create(@Valid @RequestBody Student student) {
         Student saved = service.create(student);
         return ResponseEntity.created(URI.create("/api/students/" + saved.getId())).body(saved);
     }
-
 
     // GET: retrieve all students
     @GetMapping
